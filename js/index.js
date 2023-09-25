@@ -1,6 +1,16 @@
 const buttonColours = ["red", "blue", "green", "yellow"];
 const gamePattern = [];
 const userClickedPattern = [];
+let level = 0;
+let started = false;
+
+$(document).keypress(function () {
+  if (!started) {
+    $("#level-title").text("Level " + level);
+    nextSequence();
+    started = true;
+  }
+});
 
 function nextSequence() {
   let randomNumber = Math.floor(Math.random() * 4);
